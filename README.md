@@ -1,4 +1,14 @@
-*in silico* generation of carbide-derived carbons.
+Simple example of *in silico* generation of carbide-derived carbons using
+quenched molecular dynamics and the ReaxFF force field.
+
+Requires [mbuild](https://github.com/mosdef-hub/mbuild) after c72dfa1 and
+[lammps](https://github.com/lammps/lammps) built with `user-reaxc`.
+
+Usage
+```
+python src/build.py
+lammps -i src/in.quench
+```
 
 If you find this useful for a publication, please cite [our
 paper](https://doi.org/10.3390/c3040032)
