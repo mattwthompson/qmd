@@ -1,0 +1,42 @@
+echo		    both
+units		    real
+atom_style	    charge
+
+boundary	    p p p
+
+log		        log.quench
+
+read_data       data/system.lmp
+
+pair_style	    reax/c NULL checkqeq yes
+pair_coeff	    * * ff-feb14.reax C
+
+velocity 	    all create 3500 12345
+
+neighbor	    2.0 bin
+neigh_modify	check yes
+
+thermo		    100
+thermo_style	custom step temp pe etotal press vol
+timestep	    0.5
+
+fix		        4 all qeq/reax 1 0.0 10 1.0e-6 reax/c
+
+fix		        1 all nvt temp 3500 3000 10
+dump	        1 all atom 1000 quench.lammpstrj
+dump_modify	    1 scale no
+
+variable	    pe equal pe
+variable	    step equal step
+variable	    temp equal temp
+
+fix		        5 all print 1000 "${step} ${temp} ${pe}" file thermo.dat screen no
+
+fix		        6 all reax/c/bonds 1000 bonds.quench
+variable	    run_length equal v_length*2000.0
+
+restart         10000 restart.*.quenching
+
+run		        100000
+
+write_restart	restart.quenched
