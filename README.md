@@ -4,6 +4,10 @@ quenched molecular dynamics and the ReaxFF force field.
 Requires [mbuild](https://github.com/mosdef-hub/mbuild) after c72dfa1 and
 [lammps](https://github.com/lammps/lammps) built with `user-reaxc`.
 
+A ReaxFF force field file is also necessary. The file we used, `ff-feb14.reax`,
+includes parameters reported in [this](https://doi.org/10.1021/jp510274e)
+publication.
+
 Usage
 ```
 python src/build.py
