@@ -1,7 +1,8 @@
 Simple example of *in silico* generation of carbide-derived carbons using
 quenched molecular dynamics and the ReaxFF force field.
 
-Requires [mbuild](https://github.com/mosdef-hub/mbuild) after c72dfa1 and
+Requires [mbuild](https://github.com/mosdef-hub/mbuild) 0.8.1+ (thanks to Ray
+Matsumoto for updating the mBuild LAMMPS writer) and
 [lammps](https://github.com/lammps/lammps) built with `user-reaxc`.
 
 A ReaxFF force field file is also necessary. The file we used, `ff-feb14.reax`,

@@ -102,3 +102,10 @@ ENV/
 
 # ReaxFF files
 .reax
+
+# other LAMMPS stuff
+*.lmp
+log.*
+thermo.dat
+bonds.quench
+*.lammpstrj
